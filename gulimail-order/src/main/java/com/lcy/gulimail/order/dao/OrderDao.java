@@ -1,0 +1,17 @@
+package com.lcy.gulimail.order.dao;
+
+import com.lcy.gulimail.order.entity.OrderEntity;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
+
+/**
+ * 订单
+ * 
+ * @author liangchenyang
+ * @email sunlightcs@gmail.com
+ * @date 2025-05-22 20:08:39
+ */
+@Mapper
+public interface OrderDao extends BaseMapper<OrderEntity> {
+	
+}
