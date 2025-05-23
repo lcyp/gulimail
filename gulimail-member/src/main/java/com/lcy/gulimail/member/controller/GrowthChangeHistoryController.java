@@ -1,20 +1,16 @@
 package com.lcy.gulimail.member.controller;
 
-import java.util.Arrays;
-import java.util.Map;
-
-//import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.lcy.gulimail.member.entity.GrowthChangeHistoryEntity;
-import com.lcy.gulimail.member.service.GrowthChangeHistoryService;
 import com.lcy.common.utils.PageUtils;
 import com.lcy.common.utils.R;
+import com.lcy.gulimail.member.entity.GrowthChangeHistoryEntity;
+import com.lcy.gulimail.member.entity.MemberEntity;
+import com.lcy.gulimail.member.feign.GulimailCouponFeign;
+import com.lcy.gulimail.member.service.GrowthChangeHistoryService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Arrays;
+import java.util.Map;
 
 
 
@@ -31,6 +27,16 @@ public class GrowthChangeHistoryController {
     @Autowired
     private GrowthChangeHistoryService growthChangeHistoryService;
 
+    @Autowired
+    private GulimailCouponFeign gulimailCouponFeign;
+
+    @GetMapping("/coupons")
+    public R memberCoupons(){
+        R r = gulimailCouponFeign.memberCoupons();
+        MemberEntity  memberEntity = new MemberEntity();
+        memberEntity.setNickname("张三");
+        return R.ok().put("member",memberEntity).put("coupons",r.get("coupons"));
+    }
     /**
      * 列表
      */
