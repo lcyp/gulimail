@@ -7,6 +7,8 @@ import com.lcy.gulimail.member.entity.MemberEntity;
 import com.lcy.gulimail.member.feign.GulimailCouponFeign;
 import com.lcy.gulimail.member.service.GrowthChangeHistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
@@ -23,6 +25,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("member/growthchangehistory")
+@RefreshScope //配置热更新
 public class GrowthChangeHistoryController {
     @Autowired
     private GrowthChangeHistoryService growthChangeHistoryService;
@@ -30,6 +33,14 @@ public class GrowthChangeHistoryController {
     @Autowired
     private GulimailCouponFeign gulimailCouponFeign;
 
+    @Value("${member.name}")
+    private String name;
+    @Value("${member.age}")
+    private Integer age;
+    @GetMapping("/test")
+    public R test(){
+        return R.ok().put("name",name).put("age",age);
+    }
     @GetMapping("/coupons")
     public R memberCoupons(){
         R r = gulimailCouponFeign.memberCoupons();
