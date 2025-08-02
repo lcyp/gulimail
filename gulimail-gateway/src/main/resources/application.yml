@@ -1,0 +1,28 @@
+server:
+  port: 88
+spring:
+  application:
+    name: gulimail-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    gateway:
+      routes:
+        - id: product
+          uri: lb://gulimail-product
+          predicates:
+            - Path=/api/product/**
+          filters:
+            - RewritePath=/api/?(?<segment>.*), /$\{segment}
+        - id: renrenfast
+          uri: lb://renren-fast
+          predicates:
+            - Path=/api/**
+          filters:
+            - RewritePath=/api/?(?<segment>.*), /renren-fast/$\{segment}
+
+
+logging:
+  level:
+    org.springframework.cloud.gateway: debug

@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: gulimail-gateway
+  cloud:
+    nacos:
+        config:
+            server-addr: localhost:8848
+            file-extension: yaml
+            namespace: 5f3e1b30-2cf0-4f74-8d3d-864237991c3e
+            group: dev

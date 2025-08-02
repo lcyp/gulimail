@@ -3,6 +3,8 @@ package com.lcy.gulimail.product.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.lcy.gulimail.product.entity.CategoryEntity;
 import com.lcy.common.utils.PageUtils;
+
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -15,5 +17,12 @@ import java.util.Map;
 public interface CategoryService extends IService<CategoryEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    List<CategoryEntity> listWithTree();
+
+    void removeMenuByIds(List<Long> list);
+
+    void updateBatchSort(List<CategoryEntity> list);
+
 }
 

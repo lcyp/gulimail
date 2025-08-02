@@ -10,6 +10,7 @@
         <module name="gulimail-member" />
         <module name="gulimail-common" />
         <module name="gulimail-product" />
+        <module name="gulimail-gateway" />
         <module name="gulimail-coupon" />
         <module name="renren-fast" />
         <module name="gulimail-order" />

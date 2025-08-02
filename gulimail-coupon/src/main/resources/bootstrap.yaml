@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: gulimail-coupon
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
+        file-extension: yaml
+        namespace: 567a8884-90a3-4fc5-977a-65c6258625ba
+        group: dev
+
+

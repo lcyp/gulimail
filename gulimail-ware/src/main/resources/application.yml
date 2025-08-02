@@ -1,14 +1,22 @@
-spring:
-  datasource:
-    username: root
-    password: root
-    url: jdbc:mysql://192.168.56.10:3306/gulimail_wms?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
-    driver-class-name: com.mysql.cj.jdbc.Driver
-mybatis-plus:
-  mapper-locations: classpath:mapper/**/*.xml  #映射文件位置
-  global-config:
-      db-config:
-          id-type: auto  #主键自增
-
-server:
-  port: 11000
+#spring:
+#  application:
+#    name: gulimail-ware
+#  datasource:
+#    username: root
+#    password: root
+#    url: jdbc:mysql://192.168.56.10:3306/gulimail_wms?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#  cloud:
+#    nacos:
+#      discovery:
+#        register-enabled: true
+#        heart-beat-interval: 5000
+#        heart-beat-timeout: 15000
+#        server-addr: localhost:8848
+#mybatis-plus:
+#  mapper-locations: classpath:mapper/**/*.xml  #映射文件位置
+#  global-config:
+#    db-config:
+#      id-type: auto  #主键自增
+#server:
+#  port: 11000
